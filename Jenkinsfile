@@ -15,7 +15,7 @@ pipeline {
 
         stage('Build backend') {
             steps {
-                dir('backend') {
+                dir('backend-java') {
                     withEnv(["PATH+MAVEN=$MAVEN_HOME/bin"]) {
                         sh 'mvn clean install -DskipTests'
                     }
