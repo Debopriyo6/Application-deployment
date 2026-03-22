@@ -40,7 +40,7 @@ pipeline {
                     def imageTag  = "latest"
 
                     sh """
-                        docker build -t ${imageName}:${imageTag} backend/
+                        docker build -t ${imageName}:${imageTag} backend-java/
                         docker push ${imageName}:${imageTag}
                     """
                 }
