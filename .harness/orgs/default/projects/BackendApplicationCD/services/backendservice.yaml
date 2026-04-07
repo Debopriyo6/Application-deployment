@@ -3,3 +3,32 @@ service:
   identifier: backendservice
   orgIdentifier: default
   projectIdentifier: BackendApplicationCD
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: backenddeployment
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: backendrepo
+                  gitFetchType: Branch
+                  paths:
+                    - k8s
+                  branch: main
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+      artifacts:
+        primary:
+          primaryArtifactRef: backenddocker
+          sources:
+            - spec:
+                connectorRef: dockerconnector
+                imagePath: backend-application
+                tag: latest
+                digest: ""
+              identifier: backenddocker
+              type: DockerRegistry
+    type: Kubernetes
