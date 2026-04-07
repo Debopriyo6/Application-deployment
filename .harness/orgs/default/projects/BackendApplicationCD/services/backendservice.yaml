@@ -1,0 +1,5 @@
+service:
+  name: backend-service
+  identifier: backendservice
+  orgIdentifier: default
+  projectIdentifier: BackendApplicationCD
