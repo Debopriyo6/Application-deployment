@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: eks-deploy-infra
+  identifier: eksdeployinfra
+  orgIdentifier: default
+  projectIdentifier: BackendApplicationCD
+  environmentRef: dev
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: eksdeploy
+    namespace: deafult
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: true
